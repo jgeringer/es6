@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const names = ['Joe', 'Theresa', 'Hailey']
+
+        const fullNames = names.map(function(name) {
+            return `${name} Geringer`
+        })
+
+        // console.log(fullNames)
+
+        // Arrow function version:
+        const fullNamesArrow = names.map((name) => {
+            return `${name} Geringer`
+        })
+        // console.log(fullNamesArrow)
+
+        // Implicit return Arrow function:
+        const fullNamesArrowI = names.map((name) => `${name} Geringer`)
+        // console.log(fullNamesArrowI)
+
+        // Arrow functions are anonymous functions above, but you can name them like this...
+        const sayMyName = (name) => {
+            alert(`Hey there ${name}`)
+        }
+        // sayMyName('Joe')
+
+        //returning an object with an arrow function...
+        const race = '100m'
+        
+        const winners = ['Joe', 'Hailey', 'Theresa', 'Michael Jordan']
+        // Notice the () wrapping the object, that makes it return an object
+        const win = winners.map((winner, i) => ({
+                name: winner,
+                race,   // same as... race: race
+                place: i + 1
+            })
+        )
+        console.table(win)
+
+        const ages = [23, 24, 993, 42, 90, 73]
+        const old = ages.filter(age => age >= 60)   // returns ages that are true (60+)
+        console.warn(old)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function calculateBill(total, tax = 0.13, tip = 0.15) {
+            return total + (total * tax) + (total * tip)
+        } 
+        const totalBill = calculateBill(100, undefined, .25)
+        console.warn('total bill: ', totalBill)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
