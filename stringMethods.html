@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New String Methods</title>
+</head>
+<body>
+
+<script>
+const course = 'RFB2';
+const flightNumber = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+
+// .startsWith()
+
+// .endsWith()
+
+// .includes()
+
+// .repeat()
+
+function leftPad(str, length = 20) {
+  return `→ ${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(colour));
+
+console.log(flightNumber.startsWith('20'))
+console.log(flightNumber.startsWith('AC', 3))
+console.log(flightNumber.endsWith('jz'))
+console.log(accountNumber.endsWith('RT', 11))   // just takes the first 11 numbers
+
+flightNumber.includes('AC')
+
+console.log('test'.repeat(10))  // repeats test 10x
+
+
+</script>
+
+</body>
+</html>

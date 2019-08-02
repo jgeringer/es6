@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Arrays</title>
+</head>
+<body>
+<script>
+  
+  const details = ['Wes Bos', 123, 'wesbos.com']
+  const [name, id, website] = details
+  console.log(name, id, website)
+
+  const data = 'Basketball,Sports, 90210, 23'
+  const [itemName, category, sku, inventory] = data.split(',')
+  console.log(itemName)
+
+const team = ['Joe', 'Theresa', 'Hailey', 'Molly', 'Sofia']
+const [husband, wife, kid, ...cats] = team  // rest operator
+console.log('rest operator ...', cats)
+
+let inRing = 'Hulk Hogan';
+let onSide = 'The Rock';
+
+// flipping the variable values
+console.log(inRing, onSide);
+[inRing, onSide] = [onSide, inRing];
+console.log(inRing, onSide);
+
+
+function convertCurrency(amount) {
+  const converted = {
+    USD: amount * 0.76,
+    GPB: amount * 0.53,
+    AUD: amount * 1.01,
+    MEX: amount * 13.30
+  }
+  return converted
+}
+
+const hundo = convertCurrency(100) // 100 Canadian bucks
+console.log(hundo)
+
+const { USD, GPB, AUD, MEX } = convertCurrency(100) // 100 Canadian bucks
+console.log(USD, MEX, GPB)
+
+
+
+function tipCalc({ total, tip = 0.15, tax = 0.13}) {
+  return total + (tip * total) + (tax * total)
+}
+
+const bill = tipCalc({ tip: 0.20, total: 200 }) // it's ok to omit or reorder. it will take defaults from the function
+console.log('bill: ', bill)
+
+</script>
+</body>
+</html>

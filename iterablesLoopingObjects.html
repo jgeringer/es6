@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables Objects</title>
+</head>
+<body>
+
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Snickers</p>
+  </div>
+
+<script>
+  
+  const apple = {
+    color: 'Red',
+    size: 'Medium',
+    weight: 50,
+    sugar: 10
+  }
+
+  // we could use Object.entries() in ES2017 instead of this, but use this for now
+  for (const prop of Object.keys(apple)) {
+    const value = apple[prop]
+    console.log(value, prop)
+  }
+
+  console.warn('------')
+
+  // using array of to convert somthing from array-ish to a true array so we can use Array methods
+  const people = document.querySelectorAll('.people p')
+  // the above is a NodeList, not Array
+  console.log(people)
+
+  // const peopleArray = Array.from(people) // this converts it to a true Array
+  // const names = peopleArray.map(person => person.textContent)
+  // console.log(names)
+
+  // using the .from second parameter, you dont need .map
+  const peopleArray = Array.from(people, person => {
+    console.log(person)
+    return person.textContent
+  })
+  console.log(peopleArray)
+
+  console.warn('------')
+
+  function sumAll() {
+    const nums = Array.from(arguments) // makes it a real Array
+    return nums.reduce((prev, next) => prev + next, 0)
+  }
+
+  console.log(sumAll(12,33,444,556))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Arrays</title>
+</head>
+<body>
+
+  <p>Hi I'm P 01</p>
+  <p>Hi I'm P 02</p>
+  <p>Hi I'm P 03</p>
+  <p>Hi I'm P 04</p>
+  <p>Hi I'm P 05</p>
+  <p>Hi I'm P 06</p>
+
+<script>
+  
+const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib']
+
+// forEach loop
+// downside of forEach is that you cant use break or continue inside
+cuts.forEach((cut) => {
+  console.log(cut)
+})
+
+// for in loop
+for (const index in cuts) {
+  console.log(cuts[index])
+}
+
+// for of loop
+for (const cut of cuts) {
+  console.log(cut)
+  if (cut === 'Brisket') {
+    break;  // this works here, but not in forEach
+  }
+}
+
+console.warn('---for of---')
+
+// Array iterators... uses entries() to get an iterator
+for (const [index, cut] of cuts.entries()) { // using destructuring to set variables for index and cut
+  console.log(index, cut)
+}
+
+console.warn('------')
+
+function addUpNumbers() {
+  let total = 0
+  for (const num of arguments) {
+    total += num
+  }
+  console.log(total)
+  return total
+}
+
+addUpNumbers(10, 22, 55, 342324, 1)
+
+console.warn('------')
+
+const ps = document.querySelectorAll('p')
+for (const paragraph of ps) {
+  paragraph.addEventListener('click', function() {
+    console.log(this.textContent)
+  })
+}
+
+
+</script>
+</body>
+</html>
